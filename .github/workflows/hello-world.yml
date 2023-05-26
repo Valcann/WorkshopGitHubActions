@@ -7,7 +7,10 @@ on:
     
 jobs:
   echo_hello_World:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, mecos-latest]
     steps:
       - name: Printar Hello World
         run: echo hello world
